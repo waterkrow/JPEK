@@ -309,7 +309,7 @@ static int hyundai_fwd_hook(int bus_num, CAN_FIFOMailBox_TypeDef *to_fwd) {
   }
   return bus_fwd;
 }
-555
+
 
 const safety_hooks hyundai_hooks = {
   .init = nooutput_init,
