@@ -151,9 +151,9 @@ class CarInterface(CarInterfaceBase):
 
     # LQR control by default for lateral control.
 
-    #ret.lateralTuning.init('lqr')
+    ret.lateralTuning.init('lqr')
 
-    #ret.lateralTuning.lqr.scale = 1800.0
+    ret.lateralTuning.lqr.scale = 1800.0
     ret.lateralTuning.lqr.ki = 0.005
 
     ret.lateralTuning.lqr.a = [0., 1., -0.22619643, 1.21822268]
