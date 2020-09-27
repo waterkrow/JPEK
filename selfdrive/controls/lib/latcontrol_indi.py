@@ -1,3 +1,4 @@
+from selfdrive.ntune import nTune
 import math
 import numpy as np
 
@@ -44,6 +45,7 @@ class LatControlINDI():
     self.sat_limit = CP.steerLimitTimer
 
     self.reset()
+    self.tune = nTune(CP, self)
 
   def reset(self):
     self.delayed_output = 0.
@@ -64,6 +66,7 @@ class LatControlINDI():
 
   def update(self, active, v_ego, angle_steers, angle_steers_rate, eps_torque, steer_override, rate_limited, CP, path_plan):
     # Update Kalman filter
+    self.tune.check()
     y = np.matrix([[math.radians(angle_steers)], [math.radians(angle_steers_rate)]])
     self.x = np.dot(self.A_K, self.x) + np.dot(self.K, y)
 
